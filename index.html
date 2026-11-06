@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday, Afiyah</title>
+<meta name="description" content="A birthday page for Afiyah, 7 November.">
+<meta name="theme-color" content="#0F1A33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap">
+<style>
+:root {
+  /* Layout: the night of Aisha's wedding. Navy like her dress, rose petals from the tray,
+     her name in Nastaliq; an arch-framed photo opens the page, then one calm reading column. */
+  --night: #0F1A33;     /* page, her navy dress */
+  --night-2: #16264A;   /* raised bands */
+  --pearl: #F4EEE6;     /* text */
+  --silver: #C4C3D3;    /* secondary text, sequins */
+  --rose: #C7364F;      /* petals, buttons */
+  --gold: #E3C38A;      /* wedding lights, calligraphy */
+  --rose-ink: #EE8597;  /* rose for small text on navy */
+  --line: #2C3A5F;      /* hairlines */
+  --display: "Bodoni Moda", "Bodoni 72", "Didot", Georgia, serif;
+  --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --urdu: "Gulzar", "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  --arabic: "Amiri", "Noto Naskh Arabic", "Geeza Pro", serif;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--night); }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--pearl);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--rose); color: #FFF8F3; }
+img { max-width: 100%; display: block; }
+
+.wrap { position: relative; max-width: 72rem; margin-inline: auto; padding-inline: clamp(16px, 5vw, 48px); }
+.col { max-width: 36rem; }
+
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 500; line-height: 1.15; text-wrap: balance; }
+h2 { font-size: clamp(2rem, 5.4vw, 2.9rem); margin-bottom: 22px; }
+h3 { font-size: 1.45rem; font-style: italic; color: var(--rose-ink); margin-bottom: 6px; }
+p { margin: 0 0 1em; }
+
+.eyebrow {
+  margin: 0 0 14px;
+  font: 600 0.8125rem/1.3 var(--body);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+section {
+  --sec: var(--night);
+  background: var(--sec);
+  padding-block: clamp(64px, 10vw, 120px);
+  border-top: 1px solid var(--line);
+}
+.raised { --sec: var(--night-2); }
+
+/* Petal shower, drawn over everything */
+#petals { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 50; pointer-events: none; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: clamp(40px, 7vw, 88px) clamp(56px, 9vw, 112px); }
+#sequins { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero .wrap { z-index: 1; }
+.hero-grid { display: grid; gap: 40px; justify-items: center; text-align: center; }
+.calli {
+  display: block;
+  font-family: var(--urdu);
+  font-weight: 400;
+  font-size: clamp(5.25rem, 25vw, 10.5rem);
+  line-height: 1.5;
+  color: var(--gold);
+  text-shadow: 0 0 32px rgba(227, 195, 138, 0.28);
+}
+.latin {
+  display: block;
+  margin-top: 4px;
+  font-style: italic;
+  font-size: clamp(2rem, 6.4vw, 3.4rem);
+  letter-spacing: -0.01em;
+}
+.hero-dua { margin: 20px auto 0; max-width: 28rem; color: var(--silver); }
+.hero-photo { position: relative; margin: 0; display: grid; justify-items: center; gap: 22px; }
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  width: 150%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(227, 195, 138, 0.17), rgba(227, 195, 138, 0));
+  z-index: -1;
+  pointer-events: none;
+}
+.arch {
+  width: min(100%, 340px);
+  aspect-ratio: 5 / 7.4;
+  border-radius: 50% 50% 18px 18px / 33.8% 33.8% 18px 18px;
+  overflow: hidden;
+  outline: 1px solid rgba(227, 195, 138, 0.55);
+  outline-offset: 9px;
+  background: var(--night-2);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.85);
+}
+.arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+
+@media (min-width: 880px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    justify-items: start;
+    text-align: start;
+    gap: 56px;
+  }
+  .hero-dua { margin-inline: 0; }
+  .hero-photo { justify-self: center; }
+  .arch { width: min(100%, 380px); }
+}
+
+/* First sight */
+.story p { font-size: 1.1875rem; }
+.petal-cta {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 24px;
+}
+.petal-cta p { flex: 1 1 15rem; margin: 0; font-family: var(--display); font-style: italic; font-size: 1.3rem; line-height: 1.4; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--rose);
+  color: #FFF8F3;
+  font: 600 1rem/1 var(--body);
+  cursor: pointer;
+  box-shadow: 0 12px 26px -14px rgba(199, 54, 79, 0.95);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn svg { width: 15px; height: 18px; flex: none; }
+.btn:hover { background: #D2405A; }
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn.ghost { background: transparent; color: var(--pearl); box-shadow: inset 0 0 0 1px rgba(196, 195, 211, 0.4); }
+.btn.ghost svg { color: var(--rose-ink); }
+.btn.ghost:hover { background: var(--night-2); }
+
+/* Timeline */
+.timeline { position: relative; list-style: none; margin: 10px 0 0; padding: 0; }
+.timeline li { position: relative; padding: 0 0 30px 38px; }
+.timeline li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 19px;
+  bottom: -6px;
+  width: 1px;
+  background: rgba(196, 195, 211, 0.32);
+}
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 0 5px var(--sec);
+}
+.timeline li.next::before { background: var(--sec); box-shadow: inset 0 0 0 2px var(--gold), 0 0 0 5px var(--sec); }
+.t-label {
+  display: block;
+  font: 600 0.8125rem/1.4 var(--body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.timeline p { margin: 6px 0 0; }
+.timeline q { font-style: italic; }
+
+/* Things I like */
+.likes {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  max-width: 52rem;
+  border-top: 1px solid var(--line);
+}
+.likes li { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.likes p { margin: 0; }
+@media (min-width: 700px) {
+  .likes { grid-template-columns: 1fr 1fr; column-gap: 56px; }
+}
+
+/* Name and duas */
+.lede { font-family: var(--display); font-size: 1.4rem; line-height: 1.45; }
+.dua-card {
+  margin: 30px 0;
+  padding: 28px clamp(18px, 5vw, 32px);
+  border: 1px solid rgba(227, 195, 138, 0.42);
+  border-radius: 20px;
+  background: var(--night);
+  text-align: center;
+}
+.arabic { margin: 0; font-family: var(--arabic); font-size: clamp(1.55rem, 5.6vw, 2.15rem); line-height: 2; color: var(--gold); }
+.translit { margin: 14px 0 4px; font-style: italic; }
+.meaning { margin: 0; }
+.dua-card figcaption { margin-top: 16px; font-size: 0.875rem; line-height: 1.5; color: var(--silver); }
+.dua-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; }
+.dua-list li { position: relative; padding-left: 30px; }
+.dua-list li::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0.55em;
+  width: 11px;
+  height: 11px;
+  border-radius: 70% 0 70% 0;
+  background: var(--rose);
+  transform: rotate(-10deg);
+}
+.pbuh { font-family: var(--arabic); }
+.ameen { margin: 22px 0 0; font-family: var(--display); font-style: italic; font-size: 1.6rem; color: var(--gold); }
+
+/* Letter */
+.letter h2 { font-style: italic; font-size: clamp(2.4rem, 7vw, 3.5rem); }
+.letter p { font-size: 1.125rem; }
+.letter .sign { margin: 30px 0 0; font-family: var(--display); font-style: italic; font-size: 2.3rem; line-height: 1.2; color: var(--gold); }
+.letter .fiaman { margin: 2px 0 34px; font-size: 1rem; color: var(--silver); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<header class="hero">
+  <canvas id="sequins" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">7 November</p>
+      <h1>
+        <span class="calli" lang="ur">عافیہ</span>
+        <span class="latin">Happy Birthday, Afiyah</span>
+      </h1>
+      <p class="hero-dua">Allah tumhe hamesha khush rakhe, aur tumhari har dua qubool kare.</p>
+    </div>
+    <figure class="hero-photo">
+      <div class="arch">
+        <img src="afiyah.jpg" width="624" height="1062" alt="Afiyah at Aisha's wedding in a navy dress, holding a plate of rose petals">
+      </div>
+    </figure>
+  </div>
+</header>
+
+<main>
+  <section class="story" aria-labelledby="first-h">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow">Aisha's wedding</p>
+        <h2 id="first-h">The day I noticed your funny, joyful side</h2>
+        <p>You were standing with a plate of rose petals, waiting for the bride to walk in.</p>
+        <p>She took so long that you gave up and told your cousins to throw the petals on you instead.</p>
+        <p>Everyone laughed, and I smiled too. That funny, joyful side of you is what I liked the most, and I still do.</p>
+        <div class="petal-cta">
+          <p>The bride was late, so today all the petals are yours.</p>
+          <button class="btn" type="button" id="petals-btn" data-petals>
+            <svg viewBox="0 0 20 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10 23C3.2 19.2 0 13.6 1 7.4 1.6 3.4 5 1 8.2 1.8c.9.3 1.4.8 1.8 1.6.4-.8.9-1.3 1.8-1.6C15 1 18.4 3.4 19 7.4c1 6.2-2.2 11.8-9 15.6Z"/></svg>
+            Throw the petals
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="raised" aria-labelledby="story-h">
+    <div class="wrap">
+      <div class="col">
+        <h2 id="story-h">How we got here</h2>
+        <ol class="timeline">
+          <li><span class="t-label">Two days before</span><p>I saw you at the Haldi function. That's when I first liked you.</p></li>
+          <li><span class="t-label">Aisha's wedding</span><p>And then the wedding. After that, you stayed on my mind.</p></li>
+          <li><span class="t-label">Ariba appi</span><p>I asked your cousin for help, and she became our bridge.</p></li>
+          <li><span class="t-label">The first message</span><p>I told you I saw you at Aisha's wedding. You replied, <q>Jii, I was told.</q></p></li>
+          <li><span class="t-label">So much in common</span><p>We talked about so many things, our food, our favourite movies and how we see life. Our choices turned out to be so similar.</p></li>
+          <li><span class="t-label">Some confusions</span><p>We misunderstood each other a few times, and you took some time to think. You were honest with me through all of it, and in the end it only brought us closer.</p></li>
+          <li class="next"><span class="t-label">Next</span><p>Sending the rishta to your home, with both our families. In sha Allah.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="likes-h">
+    <div class="wrap">
+      <h2 id="likes-h">A few things I like about you</h2>
+      <ul class="likes">
+        <li><h3>Your funny side</h3><p>You make me laugh, even over chat.</p></li>
+        <li><h3>Your honesty</h3><p>You tell me how you really feel, even when it isn't easy to say.</p></li>
+        <li><h3>Your deen</h3><p>You care about doing things the right way. It makes me want to be better too.</p></li>
+        <li><h3>The questions you ask</h3><p>One of the first real questions you asked me was how I handle hard times. That told me a lot about you.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="raised" aria-labelledby="dua-h">
+    <div class="wrap">
+      <div class="col">
+        <p class="eyebrow">What your name means</p>
+        <h2 id="dua-h">Your name is a dua</h2>
+        <p class="lede">Afiyah means well-being. Good health, safety and peace of heart, all in one word.</p>
+        <figure class="dua-card">
+          <p class="arabic" lang="ar" dir="rtl">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ</p>
+          <p class="translit">Allahumma inni as'alukal-'afiyata fid-dunya wal-akhirah</p>
+          <p class="meaning">O Allah, I ask You for 'afiyah in this world and the next.</p>
+          <figcaption>The Prophet <span class="pbuh">ﷺ</span> made this dua every morning and evening. (Abu Dawud, Ibn Majah)</figcaption>
+        </figure>
+        <p>So on your birthday, my first dua for you is your own name. And a few more:</p>
+        <ul class="dua-list">
+          <li>Sukoon in your heart, always.</li>
+          <li>Good health, and lots of reasons to smile.</li>
+          <li>Barakah in your studies. May BCA go easy on you.</li>
+          <li>May every dua you make this year be accepted.</li>
+          <li>And may Allah write for you whatever is best for you.</li>
+        </ul>
+        <p class="ameen">Ameen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter" aria-labelledby="letter-h">
+    <div class="wrap">
+      <div class="col">
+        <h2 id="letter-h">Afiyah,</h2>
+        <p>I don't know what this year will bring. But I'm really grateful that I got to know you.</p>
+        <p>I'm making dua for you every day. And the rest, I'll handle. The right way, In sha Allah.</p>
+        <p>Enjoy your day. You deserve every bit of it.</p>
+        <p class="sign">Musheer</p>
+        <p class="fiaman">Fi amanillah</p>
+        <button class="btn ghost" type="button" data-petals>
+          <svg viewBox="0 0 20 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10 23C3.2 19.2 0 13.6 1 7.4 1.6 3.4 5 1 8.2 1.8c.9.3 1.4.8 1.8 1.6.4-.8.9-1.3 1.8-1.6C15 1 18.4 3.4 19 7.4c1 6.2-2.2 11.8-9 15.6Z"/></svg>
+          Throw the petals again
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* Sequins: a fixed scatter of tiny silver and gold dots behind the hero, like her dress. */
+  var seq = document.getElementById('sequins');
+  function drawSequins() {
+    var box = seq.getBoundingClientRect();
+    if (!box.width || !box.height) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    seq.width = Math.round(box.width * dpr);
+    seq.height = Math.round(box.height * dpr);
+    var c = seq.getContext('2d');
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, box.width, box.height);
+    var seed = 7;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var n = Math.round(box.width * box.height / 2400);
+    for (var i = 0; i < n; i++) {
+      var x = rnd() * box.width, y = rnd() * box.height;
+      var r = 0.4 + rnd() * 1.2, a = 0.1 + rnd() * 0.45;
+      c.fillStyle = rnd() > 0.82 ? 'rgba(227,195,138,' + a + ')' : 'rgba(190,202,235,' + a + ')';
+      c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill();
+      if (rnd() > 0.95) {
+        c.strokeStyle = 'rgba(244,238,230,' + Math.min(1, a + 0.15) + ')';
+        c.lineWidth = 0.6;
+        c.beginPath();
+        c.moveTo(x - 4, y); c.lineTo(x + 4, y);
+        c.moveTo(x, y - 4); c.lineTo(x, y + 4);
+        c.stroke();
+      }
+    }
+  }
+
+  /* Rose petals: falling and tumbling, or a gentle fade for reduced motion. */
+  var cv = document.getElementById('petals');
+  var ctx = cv.getContext('2d');
+  var W = 0, H = 0, petals = [], running = false, last = 0;
+  var COLORS = [['#E85C73', '#A8203A'], ['#D63E58', '#8E1830'], ['#F07A8D', '#B82A44'], ['#C42E48', '#7A1428']];
+
+  function fit() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function shower() {
+    var still = reduce.matches;
+    var n = still ? 26 : Math.min(110, Math.round(W / 4.5));
+    for (var i = 0; i < n; i++) {
+      var s = 11 + Math.random() * 13;
+      petals.push({
+        x: Math.random() * W,
+        y: still ? 40 + Math.random() * Math.max(0, H - 80) : -30 - Math.random() * H * 0.8,
+        s: s,
+        vy: still ? 0 : 120 + Math.random() * 120,
+        vx: still ? 0 : -18 + Math.random() * 36,
+        sway: still ? 0 : 18 + Math.random() * 36,
+        ph: Math.random() * 6.283,
+        ps: 0.9 + Math.random() * 1.4,
+        rot: Math.random() * 6.283,
+        vr: still ? 0 : (Math.random() * 2 - 1) * 1.4,
+        flip: Math.random() * 6.283,
+        vf: still ? 0 : 1.6 + Math.random() * 2.6,
+        col: COLORS[(Math.random() * COLORS.length) | 0],
+        age: 0,
+        life: still ? 2.4 : 0
+      });
+    }
+    if (!running) { running = true; last = performance.now(); requestAnimationFrame(tick); }
+  }
+
+  function draw(p, alpha) {
+    var w = p.s, h = p.s * 1.25;
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.translate(p.x + Math.sin(p.ph) * p.sway, p.y);
+    ctx.rotate(p.rot);
+    ctx.scale(Math.max(0.2, Math.abs(Math.cos(p.flip))), 1);
+    var g = ctx.createLinearGradient(0, -h / 2, 0, h / 2);
+    g.addColorStop(0, p.col[0]);
+    g.addColorStop(1, p.col[1]);
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.moveTo(0, h / 2);
+    ctx.bezierCurveTo(-w * 0.75, h * 0.2, -w * 0.6, -h * 0.55, -w * 0.12, -h * 0.48);
+    ctx.quadraticCurveTo(0, -h * 0.36, w * 0.12, -h * 0.48);
+    ctx.bezierCurveTo(w * 0.6, -h * 0.55, w * 0.75, h * 0.2, 0, h / 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function tick(now) {
+    var dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    ctx.clearRect(0, 0, W, H);
+    var keep = [];
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.age += dt;
+      p.y += p.vy * dt; p.x += p.vx * dt;
+      p.ph += p.ps * dt; p.rot += p.vr * dt; p.flip += p.vf * dt;
+      var alpha = 1;
+      if (p.life) {
+        alpha = Math.min(1, p.age / 0.4, (p.life - p.age) / 0.8);
+        if (alpha <= 0) continue;
+      } else if (p.y > H + 40) {
+        continue;
+      }
+      draw(p, alpha);
+      keep.push(p);
+    }
+    petals = keep;
+    if (petals.length) requestAnimationFrame(tick);
+    else { running = false; ctx.clearRect(0, 0, W, H); }
+  }
+
+  fit();
+  drawSequins();
+  if ('ResizeObserver' in window) new ResizeObserver(drawSequins).observe(seq);
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { fit(); drawSequins(); }, 150);
+  });
+  document.querySelectorAll('[data-petals]').forEach(function (b) { b.addEventListener('click', shower); });
+  window.addEventListener('load', function () {
+    if (!reduce.matches) setTimeout(shower, 500);
+  });
+})();
+</script>
+</body>
+</html>
